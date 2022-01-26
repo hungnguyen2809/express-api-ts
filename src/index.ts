@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import helmet from 'helmet';
 import http from 'http';
+import routes from './routes';
 
 dotenv.config();
 const APP_PORT = process.env.PORT || 8086;
@@ -26,6 +27,8 @@ app.use(express.urlencoded({ extended: false }));
 app.get('/', (req, res) => {
   res.send('Wellcome, My name is Hung.');
 });
+
+app.use('/api', routes);
 
 server.listen(APP_PORT, () => {
   console.log(`Server is runing at port: ${APP_PORT}`);
