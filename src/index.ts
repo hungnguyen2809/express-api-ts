@@ -15,7 +15,7 @@ const server = http.createServer(app);
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 (async () => {
   if (APP_PRODUCT) {

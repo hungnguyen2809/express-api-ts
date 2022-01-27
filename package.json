@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "start": "node ./build/src/index.js",
     "serve": "nodemon ./src/index.ts",
     "build": "tsc --project ./"
   },
