@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Author } from '../types/TSAuthor';
+import { Author } from '../types';
 
 const authorSchema = new mongoose.Schema<Author>({
   name: {

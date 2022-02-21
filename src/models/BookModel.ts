@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Book } from '../types/TSBook';
+import { Book } from '../types';
 
 const bookSchema = new mongoose.Schema<Book>({
   name: {
