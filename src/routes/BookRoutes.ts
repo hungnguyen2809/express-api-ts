@@ -9,5 +9,9 @@ route.get('/book', BookController.getAllBook);
 route.get('/book/:id', BookController.getBookById);
 //ADD BOOK
 route.post('/book', BookController.addBook);
+//UPDATE A BOOK
+route.put('/book/:id', BookController.updateBook);
+//DELETE A BOOK
+route.delete('/book/:id', BookController.deleteBook);
 
 export default route;

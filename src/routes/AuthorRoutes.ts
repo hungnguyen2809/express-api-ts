@@ -9,5 +9,9 @@ route.get('/author', AuthorController.getAllAuthor);
 route.get('/author/:id', AuthorController.getAuthorById);
 //ADD AUTHOR
 route.post('/author', AuthorController.addAuthor);
+//ADD A AUTHOR
+route.put('/author/:id', AuthorController.updateAuthor);
+//DELETE A AUTHOR
+route.delete('/author/:id', AuthorController.deleteAuthor);
 
 export default route;

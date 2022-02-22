@@ -34,6 +34,37 @@ class BookController {
       res.status(500).json(error);
     }
   }
+
+  async updateBook(req: Request, res: Response) {
+    try {
+      const book = await BookModel.findById({ _id: req.params.id });
+      if (book) {
+        await book.updateOne({ $set: req.body });
+        res.status(200).json({ messgae: 'Update book successfully' });
+      } else {
+        res.status(200).json({ messgae: 'Not found book' });
+      }
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
+
+  async deleteBook(req: Request, res: Response) {
+    try {
+      const book = await BookModel.findById({ _id: req.params.id });
+      if (book) {
+        //updateMany: tìm trong bảng tác giả lấy tất cả book có id truyền vào rồi xóa
+        await AuthorModel.updateMany({ books: req.params.id }, { $pull: { books: req.params.id } });
+        // findByIdAndDelete tìm và xóa luôn
+        await BookModel.findByIdAndDelete(req.params.id);
+        res.status(200).json({ messgae: 'Delete Successfully' });
+      } else {
+        res.status(200).json({ messgae: 'Not found book' });
+      }
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
 }
 
 export default new BookController();
